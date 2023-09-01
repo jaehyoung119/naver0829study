@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Nanum+Pen+Script&family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body *{/*body 의 모든 하위태그 */
+            font-size: 30px;
+            font-family: 'Oswald';
+        }
+       </style>
+      
+</head>
+<body>
+    <!-- 
+        start와 end 값을 입력받아 해당 구구단을 출력하시오
+        (가로방향 자바처럼)
+        단 start가 end 보다 클경우 두값을 서로 바꾼후 출력하시오
+     -->
+     -- <script>
+        let start=prompt("시작단 입력")
+        let end= prompt("끝단 입력")
+        for(let dan=start;dan<=end;dan++) {
+            document.write(`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>${dan} 단</b>`)
+        }
+
+        document.write(`<br>`)
+        for(let i=1;i<=9;i++) {
+            for(let dan=start;dan<=end;dan++) { 
+                let gugu=dan*i
+                document.write(`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>${dan}x${i}=${gugu}</b>`)
+            }
+            document.write(`<br>`)
+        }
+    </script>
+  
+    
+    
+</body>
+</html>

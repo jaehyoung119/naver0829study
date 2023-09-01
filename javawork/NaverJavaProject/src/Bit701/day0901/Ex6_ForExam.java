@@ -40,12 +40,13 @@ public class Ex6_ForExam {
    int end=sc.nextInt();
    
    //start가 end 보다 클경우 두 변수의 값을 바꿔보자
-   if(start>end) {
+   /* if(start>end) {
 	   int temp = start;
 	   start=end;
-	   end=temp;
-   }
+	   end=temp; */
    
+   
+ 
    for(int dan=start;dan<=end;dan++) {
 	   System.out.printf("%6d단  ",dan);
    }
