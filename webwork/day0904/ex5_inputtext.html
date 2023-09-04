@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김재형</title>
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Nanum+Pen+Script&family=Oswald:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        div#msg{ /* class = . / id = # */
+            font-family: Oswald;
+            font-size: 30px;
+            margin-top: 30px;
+            color: plum;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="txtmsg">
+    <input type="button" id="btn1" value="읽기">
+    <div id="msg">Message 출력되는곳</div>
+    <script>
+        let t=document.getElementById("txtmsg");
+        let b=document.getElementById("btn1");
+        let msg=document.getElementById("msg");
+        
+        // 버튼 이벤트
+        b.onclick=function(){
+            // 입력한 문자열을 가져온다
+            let data=t.value;
+            // msg 에 출력
+            // msg.innerText="<u>"+data+"</u>"; // innerText 는 태그도 그대로 문자열로 출력 innerHTML 사용해야함
+            // msg.innerHTML="<u>"+data+"</u>"; //<u> 는 밑줄
+                msg.innerHTML+="<br><u>"+data+"</u>"; //+= : 기존 데이터에 추가로 출력
+            // 입력한 값을 지운후 포커스
+            t.value="";
+            t.focus();
+        }
+        
+    </script>
+</body>
+</html>
