@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Nanum+Pen+Script&family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <style>
+        figure{
+            float: left;
+        }
+        
+        /* 공백 : 모든 하위태그, >:바로 아래의 태그를 의미 */
+        figure img{
+            width: 130px;
+            height: 160px;
+            border: 3px inset pink;
+        }
+
+        figure>figcaption>h3>b{
+            font-family: Oswald;
+            margin-left: 50px;
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <img alt="자동차1" src="../mycar/mycar1.png" width="150">
+    <img alt="자동차2" src="../mycar/mycar2.png" width="150">
+    <img alt="자동차3" src="../mycar/mycar3.png" width="150">
+    <br>
+    <b>벤츠</b>
+    <b style="margin-left: 100px;">아우디</b>
+    <b style="margin-left: 100px;">빨강차</b>
+    <hr>
+    <figure>
+        <img src="../연예인사진/14.jpg">
+        <figcaption>
+            <h3><b>유승호</b></h3>
+        </figcaption>
+    </figure>
+    <figure>
+        <img src="../연예인사진/6.jpg">
+        <figcaption>
+            <h3><b>한예슬</b></h3>
+        </figcaption>
+    </figure>
+</body>
+</html>

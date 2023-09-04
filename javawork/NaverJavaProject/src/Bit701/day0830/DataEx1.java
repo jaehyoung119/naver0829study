@@ -6,7 +6,7 @@ public class DataEx1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	System.out.println("apple\t");	
+	System.out.println("\tapple\t");	
 	System.out.println("banana\t");
 	System.out.println("orange\n");
 	
