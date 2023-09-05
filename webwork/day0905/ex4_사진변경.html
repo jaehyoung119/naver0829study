@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Nanum+Pen+Script&family=Oswald:wght@300&display=swap" rel="stylesheet">
+</head>
+    <style>
+        div.buttons{
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        div.buttons button{
+            width: 80px;
+            height: 40px;
+        }
+        
+        #photo{
+            border: 10px groove gold;
+        }
+    </style>
+<body>
+    <div class="buttons">
+        <button type="button" id="btnsmall">점점작게</button>
+        <button type="button" id="btnlarge">점점크게</button>
+        <button type="butoon" id="random">랜덤</button>
+    </div>
+      <img src="../연예인사진/12.jpg" style="width: 300px;" id="photo">
+    
+      <!-- 3개의 버튼, 점점작게,점점크게,랜덤
+          점점작게: 사진이 5px 감소   (50보다 클경우에만)
+          점점크게: 사진이 5px 커진다 (600px 보다 작을경우에만)
+          랜덤:1~20 사이 난수를 구한후 해상 사진으로 변경하기
+    -->
+
+    <script>
+        let p=document.getElementById("photo");
+        // + 버튼
+        document.getElementById("btnlarge").onclick=function(){
+            //현재 글꼴의 크기를 얻어보자
+            let m=document.getElementById("photo");
+            //alert(m.style.fontSize); //30px
+
+            let fs=parseInt(m.style.width) || 300; //10진수로 숫자부분만 가져온다
+               
+            //alert(fs);//30
+
+            //얻어온 글꼴 크기에 3 증가
+            if(fs<600){
+                fs+=5;
+                console.log(fs);
+                //글꼴 스타일 변경
+                m.style.width=fs+"px"
+            }
+            
+        }
+         // - 버튼
+         document.getElementById("btnsmall").onclick=function(){
+            //현재 글꼴의 크기를 얻어보자
+            let m=document.getElementById("photo");
+            //alert(m.style.fontSize); //30px
+
+            let fs=parseInt(m.style.width) || 300; //10진수로 숫자부분만 가져온다
+            //alert(fs);//30
+
+            //얻어온 글꼴 크기에 3증가 -fs 5보다 큰경우에만 변경
+            if(fs>50){
+                fs-=5;
+                console.log(fs);
+                //글꼴 스타일 변경
+                m.style.width=fs+"px"
+            }
+            
+        }
+        document.getElementById("random").onclick = function () {
+        // 1~20 사이의 난수발생
+         let rnd=parseInt(Math.random()*20)+1;
+         //dlalwl qusrud
+         p.setAttribute("src",`../연예인사진/${rnd}.jpg`)
+          
+         }
+        
+    </script>
+</body>
+</html>
