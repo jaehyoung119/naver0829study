@@ -30,8 +30,20 @@ public class Account {
 		this.money-=money;
 	}
 	//출력해주는 메서드  계좌번호 예금주 잔액(accountWrite)
-	public String accountWrite() {
-		return accountNo+"\t"+accountName+"\t"+money;
+	public void accountWrite() {
+		System.out.println(accountNo + "\t" + accountName + "\t" + money); 
+	}
+	
+	//getter method
+	public String getAccountNo() {
+		return accountNo;
 	}
 
+	public String getAccountName() {
+		return accountName;
+	}
+
+	public int getMoney() {
+		return money;
+	}
 }

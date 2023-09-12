@@ -29,6 +29,7 @@ public class Book_BankApplication {
 					System.out.println("더이상 계좌생성이 불가합니다.");
 					break;
 				}
+				
 				System.out.println("--------\n계좌생성\n---------");
 				System.out.print("계좌번호>");
 				String accountNo = sc.nextLine();
@@ -36,8 +37,9 @@ public class Book_BankApplication {
 				String accountName = sc.nextLine();
 				System.out.print("초기입금액>");
 				int money = Integer.parseInt(sc.nextLine());
-
+				
 				account[idx] = new Account(accountNo, accountName, money);
+				
 				idx++;
 				break;
 			}
