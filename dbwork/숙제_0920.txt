@@ -1,0 +1,57 @@
+--문제
+--테이블 생성 (student) : num 숫자(5),name 문자열(10),height 숫자(5,1),
+--  java 숫자(3) 기본값 10,spring 숫자(3) 기본값 10, ban 문자열(20)
+CREATE TABLE student (
+  num NUMBER(5),
+  name VARCHAR2(10),
+  height NUMBER(5,1),
+  java NUMBER(3) DEFAULT 10,
+  spring NUMBER(3) DEFAULT 10,
+  ban VARCHAR2(20)
+);
+
+--시퀀스 생성  seq_stu  기본(1부터 1씩증가), nocache 추가
+CREATE SEQUENCE seq_stu START WITH 1 INCREMENT BY 1 NOCACHE;
+
+--제약조건들 추가
+--num  에 primary key 추가(student_pk_nu)
+alter table student add constraint student_pk_nu primary key(num);
+
+--java,spring 은 1~100 만 가능하도록 check 제약조건 추가
+ALTER TABLE student ADD CONSTRAINT check_java_spring CHECK (java >= 1 AND java <= 100 AND spring >= 1 AND spring <= 100);
+
+
+--ban 은 '햇님반','달님반','별님반' 만 추가할수 있도록 check 추가
+alter table student add constraint check_ban check (ban in ('햇님반','달님반','별님반'));
+
+--5개 정도만 데이타를 추가해보자
+insert into student values (seq_stu.nextval,'형',5,1,10,'별님반');
+insert into student values (seq_stu.nextval,'재형',13,12,80,'달님반');
+insert into student values (seq_stu.nextval,'형재',18,7,20,'햇님반');
+insert into student values (seq_stu.nextval,'형재김',25,31,40,'별님반');
+insert into student values (seq_stu.nextval,'재형김',54,2,30,'햇님반');
+
+--커밋하기
+commit;
+
+--num>=4 이상 모두 삭제
+delete from student where num>=4;
+
+-- num 이 3인 사람의 java점수를 99로 ,ban을 '달님반' 으로 수정
+update student set java =99, ban ='달님반' where num =3;
+
+--num=2 인사람의 키를 188.9 로 수정
+update student set height = 188.9 where num = 2;
+
+--num=2 인 데이타 삭제
+delete from student where num =2;
+
+--데이타 3개정도 더 추가
+insert into student values (seq_stu.nextval,'김윤서',16,31,80,'햇님반');
+insert into student values (seq_stu.nextval,'김한상',15,25,70,'달님반');
+insert into student values (seq_stu.nextval,'김윤하',37,11,60,'햇님반');
+
+--조회 : 이름  반 자바  스프링  총점  평균 -총점이 높은 사람부터 출력
+select name,ban,java,spring,(java + spring) 총점, ((java +spring) /2.0) 평균
+from student order by 총점; 
+

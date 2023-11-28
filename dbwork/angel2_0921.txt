@@ -1,0 +1,26 @@
+
+ACCEPT ffname PROMPT '상품명?';
+ACCEPT ffprice PROMPT '상품가격?';
+ACCEPT no PROMPT '숫자입력';
+
+DECLARE
+    f_fname food.fname%TYPE := '&ffname';
+    f_fprice food.fprice%TYPE := '&ffprice';
+    f_number NUMBER := &no; -- 숫자를 입력받을 때 NUMBER로 선언합니다.
+BEGIN
+    IF f_number = 1 THEN
+        INSERT INTO food (fname, fprice) VALUES (f_fname, f_fprice);
+        COMMIT; -- 변경 내용을 저장
+        DBMS_Output.Put_Line('상품정보를 추가했습니다');
+    ELSIF f_number = 2 THEN
+        DBMS_Output.Put_Line('상품번호  메뉴명  가격');
+        DBMS_Output.Put_Line('-------------------------');
+        
+        FOR s IN (SELECT * FROM food) LOOP
+            DBMS_Output.Put_Line(s.food_num || '  ' || s.fname || '  ' || s.fprice);
+        END LOOP;
+    ELSE
+        DBMS_Output.Put_Line('잘못된 숫자 입력');
+    END IF;
+END;
+/

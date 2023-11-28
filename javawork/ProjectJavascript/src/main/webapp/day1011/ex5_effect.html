@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Permanent+Marker&family=Single+Day&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">    
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <style>
+        body * {
+            font-family: 'Jua';
+        }
+    </style>
+<script>
+	$(function(){
+		//제목부분
+		$(".title>b").css({
+			"cursor":"pointer",
+			"font-size":"22px"
+		});
+		
+		//내용은 일단 안보이게 처리
+		$("div.content").hide();
+		
+		//제목을 클릭시 해당 기사가 slidedown 효과로 내려오게한다
+		$(".title>b").click(function(){
+			$(this).next().slideDown('slow');
+			
+			//나머지는 내용이 닫히도록
+			$(this).parent().siblings().find("div.content").slideUp('slow');
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<div class="title alert alert-danger">
+		<b>'이 식품' 식단에 없으면 치매 걸릴 위험 커</b>
+		<div class="content">
+			대표적인 항염증 식품으로는 강황, 콩, 연어, 고등어, 양파, 마늘, 생강, 녹차, 홍차 등이 있다.
+		    강황의 주성분인 커큐민은 염증을 일으키는 매개 인자를 차단하고, 
+			치매 원인 중 하나인 알루미늄이 뇌에 축적되지 않도록 보호한다. 
+		</div>
+	</div>
+	<div class="title alert alert-info">
+		<b>이스라엘 국방 “지상전 곧 개시”… 가자인근 병력집결, 주민엔 대피령</b>
+		<div class="content">
+			이스라엘이 가자지구를 봉쇄하고 무장 정파 하마스에 대한 고사 작전을 벌이는 한편
+		    가자지구 인근 자국민에게 대피령을 내리면서 지상군 투입이 임박했다는 분석이 나오고 있다. 
+		</div>
+	</div>
+	<div class="title alert alert-warning">
+		<b>피 흘리는 아내 두고 테니스 치러 간 남편…유기죄만 적용</b>
+		<div class="content">
+			(인천=연합뉴스) 김상연 기자 = 집에서 피 흘리며 쓰러진 아내를 그냥 두고 운동하러 외출한
+			 60대 남편이 사건 발생 5개월 만에 검찰에 넘겨졌다.
+		</div>
+	</div>
+</body>
+</html>

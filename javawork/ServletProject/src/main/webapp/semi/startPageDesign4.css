@@ -1,0 +1,27 @@
+@charset "EUC-KR";
+@font-face {
+    font-family: 'InkLipquid';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/InkLipquid.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.animatedText1,.animatedText2 {
+    font-size: 24px;
+    font-family: 'InkLipquid', sans-serif; /* 수정된 폰트 적용 */
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: .15em solid black;
+    width: 0;
+    animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: black; }
+}
